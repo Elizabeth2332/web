@@ -1,0 +1,283 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    color: rgba(255, 255, 255, 0.85);
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #000;
+}
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Only cover the viewport height */
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+}
+
+/* Navigation */
+header {
+    background: transparent;
+    padding: 20px 60px;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu-links li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.menu-links li a:hover {
+    color: #6460dc;
+}
+
+/* Active page */
+.menu-links li a.active {
+    border: 1px solid #ffffff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links li a.active:hover {
+    border-color: #6460dc;
+    color: #6460dc;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-content h1 {
+    background: linear-gradient(to right,rgb(222, 212, 223), #3c5ab2, #679eef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 6rem;
+    font-weight: 800;
+    opacity: 0.8;
+}
+
+.hero-content p {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #fff;
+    padding: 140px 40px 80px;
+    text-align: center;
+    color: #333;
+    margin-top: 60px;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #6460dc;
+}
+
+.contact p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact a {
+    color: #6460dc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Form Styling */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+    background-color: rgba(244, 244, 244, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #6460dc;
+    outline: none;
+}
+
+/* Submit Button - Animation */
+input[type="submit"] {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    color: #6460dc;
+    border: 2px solid #6460dc;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(100, 96, 220, 0.1);
+}
+
+input[type="submit"]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 96, 220, 0.3), transparent);
+    transition: 0.5s;
+}
+
+input[type="submit"]:hover:after {
+    left: 100%;
+}
+
+
+/* Smooth Fade In and Slide Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 900px) {
+    header {
+        padding: 20px;
+    }
+    
+    .menu-links {
+        gap: 15px;
+    }
+    
+    .menu-links li a {
+        font-size: 16px;
+    }
+    
+    .hero-content h1 {
+        font-size: 70px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+    
+    .contact {
+        padding: 120px 30px 60px;
+    }
+    
+    .contact h2 {
+        font-size: 2em;
+    }
+    
+    .contact p {
+        font-size: 1em;
+    }
+    
+    form {
+        padding: 20px;
+    }
+}
+
+/* Smooth Animation */
+.hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
